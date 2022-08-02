@@ -5,9 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const getSeedFromUrl = () => {
+  const urlElements = window.location.href.split('/');
+  if (urlElements.length > 3 && urlElements[3] !== '') {
+    return urlElements[3];
+  }
+  return 'asc';
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App seed={getSeedFromUrl()} />
   </React.StrictMode>
 );
 
